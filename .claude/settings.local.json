@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python manage.py:*)",
+      "Bash(cmd.exe /c \"netstat -ano | findstr :8000\")",
+      "Bash(cmd.exe /c \"netstat -ano | findstr :3000\")",
+      "Bash(cmd.exe /c \"type C:\\Users\\masam\\prodivant_project\\eMuseum\\start_backend.bat\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
