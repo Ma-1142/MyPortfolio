@@ -4,22 +4,50 @@ A **digital photography gallery/museum platform** for browsing, viewing, and pur
 
 ---
 
+## ⚠️ AI ASSISTANT - READ THIS FIRST ⚠️
+
+**STOP. Read ALL mdREAD/*.md files completely before taking ANY action.**
+
+1. Read `PROJECT_INFO.md` (this file) - project overview and startup commands
+2. Read `FIGMA_IMPLEMENTATION.md` - implementation guide for the frontend
+
+**Do NOT skip this step. Do NOT skim. The instructions below will save time.**
+
+---
+
 ## Quick Start
 
 > **AI Assistant Note:** When reading this file, ask the user if they want to start the frontend and backend servers, and if they want to open the Django admin page (http://127.0.0.1:8000/admin/).
 >
 > **IMPORTANT:** When the user asks you to make a change, do NOT start making changes until the user explicitly tells you to proceed. Always explain the plan first and wait for confirmation.
 
-```bash
-# Start both servers (run each in background):
-cd backend && python manage.py runserver   # Backend: http://127.0.0.1:8000
-cd frontend && npm start                    # Frontend: http://localhost:3000
+### Starting the Servers
 
-# Open admin page:
+**USE THIS EXACT FORMAT - NO EXCEPTIONS:**
+
+```bash
+# Backend (run with run_in_background: true)
+python C:/Users/masam/prodivant_project/eMuseum/backend/manage.py runserver
+
+# Frontend (run with run_in_background: true)
+npm start --prefix C:/Users/masam/prodivant_project/eMuseum/frontend
+
+# Open admin page
 start http://127.0.0.1:8000/admin/
+
+# Open frontend
+start http://localhost:3000
 ```
 
-> **AI Startup Note:** Run commands directly in bash without `cmd.exe` wrapper. Use `run_in_background: true` for both servers. Do NOT use `cmd.exe /c` - it doesn't work properly in this environment.
+### ❌ DO NOT USE:
+- `cmd.exe /c` - doesn't work in this environment
+- Backslash paths (`C:\Users\...`) - use forward slashes (`C:/Users/...`)
+- Batch files through `start` command - unreliable
+
+### ✅ DO USE:
+- Forward-slash paths: `C:/Users/masam/prodivant_project/eMuseum/...`
+- `run_in_background: true` parameter for servers
+- `TaskOutput` to verify servers started correctly
 
 ---
 
@@ -141,6 +169,12 @@ ALLOWED_HOSTS=
 ```
 
 > **⚠️ Security Note:** The `.env` file contains sensitive credentials (database password, Django secret key). Ensure this file is listed in `.gitignore` and never committed to version control.
+
+---
+
+## TODO - Next Session
+
+- [ ] **Full Frame Photo Mode**: Make photos display full-frame (100% viewport) and hide sidebar, navbar, and info panel. User should be able to toggle this mode on/off.
 
 ---
 

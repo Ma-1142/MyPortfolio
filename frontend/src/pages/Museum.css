@@ -1,0 +1,259 @@
+/* Museum Layout */
+.museum {
+  min-height: calc(100vh - 50px);
+  padding-top: 50px;
+}
+
+.museum-layout {
+  min-height: calc(100vh - 50px);
+  position: relative;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: fixed;
+  top: 60px;
+  left: 180px;
+  z-index: 100;
+  width: 24px;
+  height: 40px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.sidebar-closed .sidebar-toggle {
+  left: 0;
+  border-left: 1px solid var(--border-color);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Sidebar */
+.museum-sidebar {
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 180px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+.museum-sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar-header {
+  padding: 1.5rem 1rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.sidebar-nav {
+  padding: 0.5rem 0;
+}
+
+.sidebar-item {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: left;
+  border: none;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.sidebar-item.active {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-left-color: var(--accent);
+}
+
+.loading-text {
+  padding: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Gallery Section */
+.gallery {
+  background: var(--bg-primary);
+  margin-left: 180px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-closed .gallery {
+  margin-left: 0;
+}
+
+/* Gallery List - Large Image Layout */
+.gallery-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-row {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: calc(100vh - 50px);
+}
+
+.gallery-row.image-right {
+  grid-template-columns: 30% 70%;
+}
+
+/* Alternating layout */
+.gallery-row.image-left .gallery-image-section {
+  order: 1;
+}
+
+.gallery-row.image-left .gallery-info-section {
+  order: 2;
+}
+
+.gallery-row.image-right .gallery-image-section {
+  order: 2;
+}
+
+.gallery-row.image-right .gallery-info-section {
+  order: 1;
+}
+
+/* Image Section */
+.gallery-image-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image-section img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.gallery-row:hover .gallery-image-section img {
+  transform: scale(1.02);
+}
+
+.gallery-image-section .image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+/* Info Section */
+.gallery-info-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+}
+
+.gallery-row.image-right .gallery-info-section {
+  background: var(--bg-tertiary);
+  border-left: none;
+  border-right: 1px solid var(--border-color);
+}
+
+.gallery-info-content {
+  max-width: 280px;
+}
+
+.gallery-info-content .gallery-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.gallery-artist {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.gallery-info-content .gallery-description {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.gallery-meta {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.gallery-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.gallery-status {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Empty/Loading States */
+.no-pictures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 50px);
+  color: var(--text-secondary);
+}
+
+.gallery > .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 50px);
+  color: var(--text-secondary);
+}

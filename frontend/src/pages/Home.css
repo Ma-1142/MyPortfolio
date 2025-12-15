@@ -1,0 +1,246 @@
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 120px 4rem 80px;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 8px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-images {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 250px);
+  gap: 1rem;
+}
+
+.hero-image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero-image .image-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image.image-1 {
+  transform: translateY(-20px);
+}
+
+.hero-image.image-2 {
+  transform: translateY(20px);
+}
+
+.hero-image.image-3 {
+  transform: translateY(-20px);
+}
+
+.hero-image.image-4 {
+  transform: translateY(20px);
+}
+
+/* About Preview Section */
+.about-preview {
+  background: var(--bg-secondary);
+}
+
+.about-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-preview-image {
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about-preview-image .image-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.about-preview-content .section-title {
+  margin-bottom: 1.5rem;
+}
+
+.about-preview-text {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-preview-contact {
+  display: flex;
+  gap: 3rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-value {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* Services Preview Section */
+.services-preview {
+  background: var(--bg-primary);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.service-image .image-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.service-content {
+  padding: 1.5rem;
+}
+
+.service-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.service-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Museum Preview Section */
+.museum-preview {
+  background: var(--bg-secondary);
+}
+
+.museum-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.museum-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.museum-image {
+  width: 100%;
+  height: 100%;
+}
+
+.museum-image .image-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.museum-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.museum-item:hover .museum-overlay {
+  opacity: 1;
+}
+
+.museum-overlay h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.museum-overlay span {
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
