@@ -174,7 +174,16 @@ ALLOWED_HOSTS=
 
 ## TODO - Next Session
 
-- [ ] **Full Frame Photo Mode**: Make photos display full-frame (100% viewport) and hide sidebar, navbar, and info panel. User should be able to toggle this mode on/off.
+- [ ] **Smooth Scrolling/Immersive Mode**: The scroll-driven immersive mode exists but transitions aren't smooth enough. Need to improve:
+  - Smoother fade/slide animations for navbar, sidebar as user scrolls
+  - Consider using requestAnimationFrame with lerp for butter-smooth progress updates
+  - Current CSS transitions (0.4s ease-out) added but not producing desired smoothness
+  - May need to debounce/throttle scroll events or use a different approach entirely
+
+- [x] **Info Overlay on Photos**: ~~Move photo info (title, artist, description, price/availability) to overlay on the photo itself~~ - DONE
+  - Alternates left/right sides based on row index
+  - Positioned at vertical center of photo
+  - No borders, semi-transparent dark background with blur
 
 ---
 

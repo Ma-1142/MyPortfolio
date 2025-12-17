@@ -2,6 +2,17 @@
 .museum {
   min-height: calc(100vh - 50px);
   padding-top: 50px;
+  transition: padding-top 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for the whole page when on museum */
+html:has(.museum) {
+  scroll-behavior: smooth;
+}
+
+.museum.immersive-active {
+  padding-top: 0;
 }
 
 .museum-layout {
@@ -27,7 +38,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-out;
 }
 
 .sidebar-toggle:hover {
@@ -51,7 +62,7 @@
   width: 180px;
   height: calc(100vh - 50px);
   overflow-y: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   z-index: 99;
 }
 
@@ -111,7 +122,7 @@
 .gallery {
   background: var(--bg-primary);
   margin-left: 180px;
-  transition: margin-left 0.3s ease;
+  transition: margin-left 0.4s ease-out;
 }
 
 .sidebar-closed .gallery {
@@ -125,53 +136,38 @@
 }
 
 .gallery-row {
-  display: grid;
-  grid-template-columns: 70% 30%;
   height: calc(100vh - 50px);
+  max-height: calc(100vh - 50px);
+  transition: height 0.3s ease, max-height 0.3s ease;
 }
 
-.gallery-row.image-right {
-  grid-template-columns: 30% 70%;
-}
-
-/* Alternating layout */
-.gallery-row.image-left .gallery-image-section {
-  order: 1;
-}
-
-.gallery-row.image-left .gallery-info-section {
-  order: 2;
-}
-
-.gallery-row.image-right .gallery-image-section {
-  order: 2;
-}
-
-.gallery-row.image-right .gallery-info-section {
-  order: 1;
+.immersive-active .gallery-row {
+  height: 100vh;
+  max-height: 100vh;
 }
 
 /* Image Section */
 .gallery-image-section {
   position: relative;
   overflow: hidden;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  min-height: 0;
 }
 
 .gallery-image-section img {
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100vh - 50px);
   width: auto;
   height: auto;
   object-fit: contain;
-  transition: transform 0.5s ease;
 }
 
-.gallery-row:hover .gallery-image-section img {
-  transform: scale(1.02);
+.immersive-active .gallery-image-section img {
+  max-height: 100vh;
 }
 
 .gallery-image-section .image-placeholder {
@@ -184,59 +180,60 @@
   color: var(--text-muted);
 }
 
-/* Info Section */
-.gallery-info-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: var(--bg-secondary);
-  border-left: 1px solid var(--border-color);
+/* Info Overlay - positioned on the side of the photo */
+.gallery-info-overlay {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1.5rem;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  max-width: 300px;
+  transition: opacity 0.3s ease;
 }
 
-.gallery-row.image-right .gallery-info-section {
-  background: var(--bg-tertiary);
-  border-left: none;
-  border-right: 1px solid var(--border-color);
+/* Alternating sides - left for even rows, right for odd */
+.gallery-row.info-left .gallery-info-overlay {
+  left: 2rem;
 }
 
-.gallery-info-content {
-  max-width: 280px;
+.gallery-row.info-right .gallery-info-overlay {
+  right: 2rem;
 }
 
-.gallery-info-content .gallery-title {
-  font-size: 1.5rem;
+.gallery-info-overlay .gallery-title {
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   line-height: 1.3;
+  color: var(--text-primary);
 }
 
-.gallery-artist {
+.gallery-info-overlay .gallery-artist {
   color: var(--accent);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-bottom: 0.75rem;
 }
 
-.gallery-info-content .gallery-description {
+.gallery-info-overlay .gallery-description {
   color: var(--text-secondary);
   font-size: 0.85rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.gallery-meta {
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
+.gallery-info-overlay .gallery-meta {
+  padding-top: 0.75rem;
 }
 
 .gallery-price {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .gallery-status {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   font-style: italic;
 }

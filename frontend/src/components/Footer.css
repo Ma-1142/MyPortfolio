@@ -114,3 +114,9 @@
   color: var(--text-muted);
   font-size: 0.85rem;
 }
+
+/* Immersive mode - hide footer when scrolling in museum */
+body.museum-immersive .footer {
+  opacity: calc(1 - var(--immersive-progress, 0));
+  pointer-events: none;
+}
