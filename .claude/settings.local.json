@@ -4,7 +4,12 @@
       "Bash(python manage.py:*)",
       "Bash(cmd.exe /c \"netstat -ano | findstr :8000\")",
       "Bash(cmd.exe /c \"netstat -ano | findstr :3000\")",
-      "Bash(cmd.exe /c \"type C:\\Users\\masam\\prodivant_project\\eMuseum\\start_backend.bat\")"
+      "Bash(cmd.exe /c \"type C:\\Users\\masam\\prodivant_project\\eMuseum\\start_backend.bat\")",
+      "Bash(start http://127.0.0.1:8000/admin/)",
+      "Bash(cmd.exe /c \"cd /d C:\\Users\\masam\\prodivant_project\\eMuseum\\frontend && npm start\")",
+      "Bash(cmd.exe /c \"cd /d C:\\Users\\masam\\prodivant_project\\eMuseum\\frontend & start npm start\")",
+      "Bash(cmd.exe /c \"start C:\\Users\\masam\\prodivant_project\\eMuseum\\start_backend.bat\")",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []
